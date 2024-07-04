@@ -64,16 +64,16 @@ white-space: nowrap;
 }
 
 .contenedor {
-    margin-top: 50px;
+    margin: 50px auto; /* Centra el contenedor y da margen superior */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: auto; /* Usamos auto para que se ajuste dinámicamente */
-    justify-content: center;
-    gap: 5vw; /* Cambiamos a unidad relativa para el espacio entre celdas */
-    max-width: 1200px; /* Por ejemplo, un ancho máximo para limitar el tamaño */
-    padding: 0 20px; /* Añadimos padding para evitar que se pegue a los bordes */
-    
+    grid-auto-rows: auto;
+    justify-content: center; /* Asegura que los elementos estén centrados dentro de las columnas */
+    gap: 5vw;
+    max-width: 1200px; /* Limita el ancho máximo */
+    padding: 0 20px; /* Añade espacio en los lados */
 }
+
 
 .moshi_img {
     width: 100%; /* Hace que la imagen ocupe el 100% del ancho de su contenedor */
@@ -147,6 +147,43 @@ white-space: nowrap;
     }
     .navbar-peque{
         font-size: medium;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .carrito-cerrar, .vaciar-carrito, .pagar {
+        position: relative;
+        border: 0;
+        background-color: transparent;
+        font-size: 20px;
+        cursor: pointer;
+        float: right;
+    }
+    .carrito-items {
+        list-style-type: none;
+        padding: 0;
+        width: 398px;
+        max-height: 280px;
+        overflow-y: auto;
+        overflow-x: clip;
+        margin-right: 10px;
+    }
+    .carrito-panel {
+        position: fixed;
+        display: none; /* Cambiar a 'block' o 'flex' cuando se muestre */
+        z-index: 999;
+        max-width: 430px;
+        width: 100%;
+        bottom: 20px;
+        right: 20px;
+        padding: 20px;
+        background-color: pink;
+        box-shadow: 0 0px 15px rgba(217, 82, 159, 0.5);
+    }
+
+    .carrito-panel.mostrar-carrito {
+        display: block; /* Mostrar el panel cuando se active */
     }
 }
 
