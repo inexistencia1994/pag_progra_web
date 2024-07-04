@@ -53,9 +53,11 @@
 .carrito-items {
     list-style-type: none;
     padding: 0;
-    width: 392px; /* Ajusta el ancho de la imagen si es necesario */
-    height: auto; /* Ajusta la altura automáticamente */
-    margin-right: 10px; 
+    width: 398px;
+    max-height: 280px;
+    overflow-y: auto;
+    overflow-x: clip;
+    margin-right: 10px;
 }
 
 #carrito-contador-id {
