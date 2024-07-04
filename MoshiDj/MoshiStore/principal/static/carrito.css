@@ -54,10 +54,18 @@
     list-style-type: none;
     padding: 0;
     width: 398px;
-    max-height: 280px;
+    max-height: 230px;
     overflow-y: auto;
-    overflow-x: clip;
+    overflow-x: hidden; /* Esconder el desplazamiento horizontal */
     margin-right: 10px;
+    scrollbar-width: thin; /* Para navegadores que soportan el modelo de diseño de scrollbar */
+    scrollbar-color: pink, #ffffff; /* Color de la barra y el fondo */
+}
+
+/* Estilos específicos para WebKit (Chrome, Safari, Edge) */
+.carrito-items::-webkit-scrollbar {
+    width: 6px; /* Ancho de la barra de desplazamiento */
+    
 }
 
 #carrito-contador-id {
@@ -114,6 +122,7 @@
     display: block;
     text-align: center;
     margin-left: 3%;
+    font-size: 14px;
 }
 
 .vaciar-carrito:hover, .pagar:hover {
@@ -149,5 +158,62 @@
 .eliminar-tipo {
     background-color: unset;
     padding: 3px;
-    margin-left: 5%; /* Añade un margen izquierdo específico para el botón de eliminar */
+    margin-left: -3%;
   }
+
+  @media (max-width: 768px) {
+    
+    .carrito-cerrar, .vaciar-carrito, .pagar {
+        position: relative;
+        border: 0;
+        font-size: 9px;
+        cursor: pointer;
+        float: right;
+        padding: 6px;
+    }
+    .info-producto {
+        display: inherit;
+        justify-content: space-between;
+        align-items: center;
+        width: 230px;
+    }
+    .carrito-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid rgb(218, 116, 181);
+    }
+    .carrito-items {
+        list-style-type: none;
+        padding: 0;
+        width: 230px;
+        max-height: 100px;
+        overflow-y: auto;
+        overflow-x: clip;
+        font-size: 10px;
+    }
+    .carrito-panel {
+        position: fixed;
+        z-index: 999;
+        width: 270px;
+        max-height: 300px;
+        height: max-content;
+        right: 20px;
+        padding: 20px;
+        background-color: pink;
+        box-shadow: 0 0px 15px rgba(217, 82, 159, 0.5);
+    }
+
+    .carrito-panel.mostrar-carrito {
+        display: block; /* Mostrar el panel cuando se active */
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+    h5 {
+        font-size: 0.67em;
+    }
+}
