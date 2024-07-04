@@ -1,0 +1,94 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block body %}
+
+
+<section class="productos">
+    <div class="contenedor">
+        <div class="item">
+            <img src="{% static 'imagenes/dulce_1.jpg'%}" class="moshi_img">
+            <h3>Japanese Fish</h3>
+            <p>Waffle Relleno: crema sakura</p>
+            <p class="precio">$1.000</p>
+            <button class="añadir-carrito" data-name="Japanese Fish" data-price="1000">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulces_2.jpg'%}" class="moshi_img">
+            <h3>Sanrio Gummy</h3>
+            <p>Gomitas sabor fresa y uva Sanrio Friend's ♡</p>
+            <p class="precio">$2.500</p>
+            <button class="añadir-carrito" data-name="Sanrio Gummy" data-price="2500">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulces_3.jpg'%}" class="moshi_img">
+            <h3>Strawberry Pocky</h3>
+            <p>Bastones de galleta sabor fresa ♡</p>
+            <p class="precio">$1.500</p>
+            <button class="añadir-carrito" data-name="Strawberry Pocky" data-price="1500">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulces_5.jpg'%}" class="moshi_img">
+            <h3>Kirby's Gummy</h3>
+            <p>Gomitas sabor uva ⊹ ࣪ ˖</p>
+            <p class="precio">$2.000</p>
+            <button class="añadir-carrito" data-name="Kirby's Gummy" data-price="2000">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulce_6.jpg'%}" class="moshi_img">
+            <h3>Buldak Noodles</h3>
+            <p>Ramen instantaneo picante ⊹ ࣪ ˖</p>
+            <p class="precio">$1.990</p>
+            <button class="añadir-carrito" data-name="Buldak Noodles" data-price="1990">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulce_7.jpg'%}" class="moshi_img">
+            <h3>Pusheen Mochis</h3>
+            <p>Strawberry Mochis Pusheen ⊹ ࣪ ˖</p>
+            <p class="precio">$2.600</p>
+            <button class="añadir-carrito" data-name="Pusheen Mochis" data-price="2600">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulces_8.jpg'%}" class="moshi_img">
+            <h3>Pancakes Rilakkuma</h3>
+            <p>Pancakes congelados edicion Rilakkuma ⊹ ࣪ ˖</p>
+            <p class="precio">$2.990</p>
+            <button class="añadir-carrito" data-name="Pancakes Rilakkuma" data-price="2990">Agregar al carrito!</button>
+        </div>
+
+        <div class="item">
+            <img src="{% static 'imagenes/dulces_4.jpg'%}" class="moshi_img">
+            <h3>Macarrones Dulces Sanrio</h3>
+            <p>6 Macarrones dulces edicion Sanrio ⊹ ࣪ ˖</p>
+            <p class="precio">$3.990</p>
+            <button class="añadir-carrito" data-name="Macarrones Dulces Sanrio" data-price="3990">Agregar al carrito!</button>
+        </div>
+    </div>
+</section>
+
+    
+    <div class="carrito">
+        <button class="carrito-boton" id="carrito-boton-id"><i class="fa-solid fa-cart-shopping"></i></button>
+        <div class="carrito-panel" id="carrito-panel-id">
+            <button class="carrito-cerrar" id="carrito-cerrar-id"><i class="fa-regular fa-circle-xmark"></i></button>
+            <h2>carrito de compras</h2>
+            <ul class="carrito-items"></ul>
+            <div class="carrito-total">Total:<span id="carrito-total-id"> $0</span></div>
+        </div>
+    </div>
+    <script src="{% static 'carrito.js'}"></script>
+
+
+
+
+
+
+    
+</body>
+</html>
+{% endblock %}
