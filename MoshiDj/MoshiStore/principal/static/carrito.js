@@ -70,73 +70,75 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.forEach((item, index) => {
             const li = document.createElement('li');
             li.className = 'carrito-item';
-    
+
             // Crear contenedor para nombre, precio y cantidad
             const infoProducto = document.createElement('div');
             infoProducto.className = 'info-producto';
-    
+
             // Mostrar nombre y precio del producto sin decimales
             const nombrePrecio = document.createElement('span');
             nombrePrecio.textContent = `${item.name} - ${Math.round(item.price * item.quantity).toLocaleString('es-CL')}`;
             infoProducto.appendChild(nombrePrecio);
             nombrePrecio.className = 'info-producto';
-    
+
             // Crear contenedor para cantidad con botones de incremento y decremento
             const cantidadContenedor = document.createElement('div');
             cantidadContenedor.className = 'cantidad div-cantidad';
-    
+
             // Botón de decremento (-)
             const btnDecrementar = document.createElement('button');
             btnDecrementar.textContent = '-';
             btnDecrementar.classList.add('button', 'decrementar'); // Clases añadidas
-            btnDecrementar.addEventListener('click', () => {
+            btnDecrementar.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevenir el cierre del carrito
                 decrementarCantidad(index);
             });
             cantidadContenedor.appendChild(btnDecrementar);
-    
+
             // Mostrar cantidad del producto
             const cantidad = document.createElement('span');
             cantidad.textContent = item.quantity;
             cantidadContenedor.appendChild(cantidad);
-    
+
             // Botón de incremento (+)
             const btnIncrementar = document.createElement('button');
             btnIncrementar.textContent = '+';
             btnIncrementar.classList.add('button', 'incrementar'); // Clases añadidas
-            btnIncrementar.addEventListener('click', () => {
+            btnIncrementar.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevenir el cierre del carrito
                 incrementarCantidad(index);
             });
             cantidadContenedor.appendChild(btnIncrementar);
-    
+
             // Botón para eliminar todos los productos de este tipo
             const btnEliminarTipo = document.createElement('button');
             btnEliminarTipo.innerHTML = '&#10006;'; // Ícono de cruz en HTML
             btnEliminarTipo.classList.add('button', 'eliminar-tipo'); // Clases añadidas
-            btnEliminarTipo.addEventListener('click', () => {
+            btnEliminarTipo.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevenir el cierre del carrito
                 eliminarProductosTipo(item.name);
             });
-    
+
             cantidadContenedor.appendChild(btnEliminarTipo);
-    
+
             infoProducto.appendChild(cantidadContenedor);
-    
+
             li.appendChild(infoProducto);
             carritoItems.appendChild(li);
             total += item.price * item.quantity;
         });
-    
+
         carritoContador.textContent = carrito.reduce((total, item) => total + item.quantity, 0);
-    
+
         // Mostrar el total en pesos chilenos sin decimales
         carritoTotal.textContent = `${Math.round(total).toLocaleString('es-CL')}`;
-    
+
         if (carrito.length > 0) {
             carritoContador.style.visibility = 'visible';
         } else {
             carritoContador.style.visibility = 'hidden';
         }
     }
-    
 
     function decrementarCantidad(index) {
         if (carrito[index].quantity > 1) {
